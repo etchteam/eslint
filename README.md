@@ -5,7 +5,7 @@ The eslint config that we use at [Etch](https://etch.co)
 ## Install
 
 ```bash
-npm install @etchteam/eslint
+npm install eslint @etchteam/eslint
 ```
 
 ## Use
