@@ -1,0 +1,43 @@
+{
+  "name": "@etchteam/eslint",
+  "version": "0.0.1",
+  "description": "Etch's standard eslint config",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "semantic-release"
+  },
+  "engines": {
+    "node": "18.12.1",
+    "npm": "8.19.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/etchteam/eslint.git"
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "author": "Etch <hey@etch.co>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/etchteam/eslint/issues"
+  },
+  "homepage": "https://github.com/etchteam/eslint#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "eslint": "^8.29.0",
+    "eslint-config-next": "^13.0.7",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-security": "^1.5.0",
+    "eslint-plugin-storybook": "^0.6.8",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.2",
+    "prettier": "^2.8.1"
+  }
+}
