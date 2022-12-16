@@ -8,8 +8,7 @@
     "release": "semantic-release"
   },
   "engines": {
-    "node": "18.12.1",
-    "npm": "8.19.2"
+    "node": "^14 || ^16 || ^18"
   },
   "repository": {
     "type": "git",
