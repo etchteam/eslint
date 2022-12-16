@@ -1,6 +1,6 @@
 # @etchteam/eslint
 
-Helpers we use at [Etch](https://etch.co) for working with Contentful
+The eslint config that we use at [Etch](https://etch.co)
 
 ## Install
 
