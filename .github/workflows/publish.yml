@@ -26,6 +26,8 @@ jobs:
           extends: |
             @semantic-release/git@10.0.1
             @semantic-release/changelog@6.0.2
+            @commitlint/cli@17.3.0
+            @commitlint/config-conventional@17.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
