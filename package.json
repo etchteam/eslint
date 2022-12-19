@@ -1,5 +1,5 @@
 {
-  "name": "@etchteam/eslint",
+  "name": "@etchteam/eslint-config",
   "version": "0.0.1",
   "description": "Etch's standard eslint config",
   "main": "src/index.js",
@@ -40,6 +40,10 @@
     "eslint-plugin-security": "^1.5.0",
     "eslint-plugin-storybook": "^0.6.8",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.8.1"
+  },
+  "peerDependencies": {
+    "eslint": "^8.29.0",
     "prettier": "^2.8.1"
   }
 }
