@@ -39,5 +39,9 @@
     "eslint-plugin-storybook": "^0.6.8",
     "eslint-plugin-unused-imports": "^2.0.0",
     "prettier": "^2.8.1"
+  },
+  "peerDependencies": {
+    "eslint": "^8.29.0",
+    "prettier": "^2.8.1"
   }
 }
