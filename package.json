@@ -1,5 +1,5 @@
 {
-  "name": "@etchteam/eslint",
+  "name": "@etchteam/eslint-config",
   "version": "0.0.1",
   "description": "Etch's standard eslint config",
   "main": "src/index.js",
