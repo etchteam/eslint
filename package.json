@@ -26,6 +26,10 @@
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0"
+  },
+  "dependencies": {
     "eslint": "^8.29.0",
     "eslint-config-next": "^13.0.7",
     "eslint-config-prettier": "^8.5.0",
@@ -34,10 +38,6 @@
     "eslint-plugin-security": "^1.5.0",
     "eslint-plugin-storybook": "^0.6.8",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "husky": "^8.0.2",
     "prettier": "^2.8.1"
-  },
-  "dependencies": {
-    "lint-staged": "^13.1.0"
   }
 }
