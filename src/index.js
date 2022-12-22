@@ -20,6 +20,10 @@ module.exports = {
       alphabetize: {
         order: 'asc'
       },
+      pathGroups: [{
+        pattern: '@/**',
+        group: 'parent'
+      }]
     }],
   },
   settings: {
