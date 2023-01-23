@@ -7,6 +7,9 @@ pull_request_rules:
         - check-success~=^security/snyk
         - label!=wontfix
     actions:
+      review:
+        type: APPROVE
+        message: Automatically approving dependabot
       merge:
         method: merge
   - name: Merge Snyk PRs when all checks pass
@@ -18,6 +21,9 @@ pull_request_rules:
         - check-success=SonarCloud Code Analysis
         - label!=wontfix
     actions:
+      review:
+        type: APPROVE
+        message: Automatically approving snyk
       merge:
         method: merge
   - name: Merge when all checks pass and the PR has been approved
