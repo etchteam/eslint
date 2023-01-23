@@ -30,16 +30,3 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-  - name: Ask for reviews
-    conditions:
-      - -closed
-      - -draft
-    actions:
-      request_reviews:
-        users:
-          - JoshTheWanderer
-          - DanWebb
-          - gavmck
-          - ella-etch
-          - Carl-J-M
-        random_count: 2
