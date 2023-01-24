@@ -11,7 +11,7 @@ npm install eslint prettier @etchteam/eslint-config
 ## Usage
 
 ```bash
-echo "module.exports = { extends: ['@etchteam'] }" > .eslintrc.js
+echo "module.exports = { extends: ['@etchteam'] };" > .eslintrc.js
 ```
 
 ### With lint-staged
