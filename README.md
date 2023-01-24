@@ -11,7 +11,7 @@ npm install eslint prettier @etchteam/eslint-config
 ## Usage
 
 ```bash
-echo "module.exports = { extends: ['@etchteam'] }" > .eslintrc.js
+echo "module.exports = { extends: ['@etchteam'] };" > .eslintrc.js
 ```
 
 ### With lint-staged
@@ -46,7 +46,7 @@ Run the following:
 ```bash
 mkdir .vscode
 
-echo "{ "editor.formatOnSave": false, "editor.codeActionsOnSave": { "source.fixAll.eslint": true } }" > .vscode/settings.json
+echo "{ \"editor.formatOnSave\": false, \"editor.codeActionsOnSave\": { \"source.fixAll.eslint\": true } }" > .vscode/settings.json
 
 # The VSCode prettier extension doesn't read the eslint config, so specific
 # prettier overrides need to go in a prettier config for format on save
