@@ -25,14 +25,17 @@ module.exports = {
         group: 'parent'
       }]
     }],
+    'prettier/prettier': [
+      'error',
+      {
+        'singleQuote': true,
+      }
+    ]
   },
   settings: {
     'import/resolver': {
       typescript: true,
       node: true
-    },
-    'prettier/prettier': {
-      singleQuote: true,
-    },
+    }
   }
 };
