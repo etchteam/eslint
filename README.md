@@ -5,7 +5,7 @@ The eslint config that we use at [Etch](https://etch.co)
 ## Install
 
 ```bash
-npm install eslint prettier @etchteam/eslint-config
+npm i -D eslint prettier @etchteam/eslint-config
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ echo "module.exports = { extends: ['@etchteam'] };" > .eslintrc.js
 Run the following:
 
 ```bash
-npm install husky lint-staged
+npm i -D husky lint-staged
 
 echo "module.exports = { '*.{ts,tsx,js,jsx}': 'eslint --fix' };" > lint-staged.config.js
 
