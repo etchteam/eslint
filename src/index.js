@@ -7,6 +7,7 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
+    'plugin:jsx-a11y/strict',
   ],
   plugins: ['unused-imports'],
   parser: '@typescript-eslint/parser',
@@ -36,6 +37,8 @@ module.exports = {
         singleQuote: true,
       },
     ],
+    'jsx-a11y/anchor-ambiguous-text': 'error',
+    'jsx-a11y/no-aria-hidden-on-focusable': 'error',
   },
   settings: {
     'import/resolver': {
