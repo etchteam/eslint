@@ -39,6 +39,7 @@ module.exports = {
     ],
     'jsx-a11y/anchor-ambiguous-text': 'error',
     'jsx-a11y/no-aria-hidden-on-focusable': 'error',
+    'security/detect-object-injection': 'off',
   },
   settings: {
     'import/resolver': {
