@@ -15,27 +15,32 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': 'off',
-    'import/order': ['error', {
-      'newlines-between': 'always',
-      alphabetize: {
-        order: 'asc'
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+        },
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'parent',
+          },
+        ],
       },
-      pathGroups: [{
-        pattern: '@/**',
-        group: 'parent'
-      }]
-    }],
+    ],
     'prettier/prettier': [
       'error',
       {
-        'singleQuote': true,
-      }
-    ]
+        singleQuote: true,
+      },
+    ],
   },
   settings: {
     'import/resolver': {
       typescript: true,
-      node: true
-    }
-  }
+      node: true,
+    },
+  },
 };
