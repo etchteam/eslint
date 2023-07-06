@@ -7,6 +7,7 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
+    'plugin:jsx-a11y/strict',
   ],
   plugins: ['unused-imports'],
   parser: '@typescript-eslint/parser',
@@ -15,27 +16,35 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': 'off',
-    'import/order': ['error', {
-      'newlines-between': 'always',
-      alphabetize: {
-        order: 'asc'
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+        },
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'parent',
+          },
+        ],
       },
-      pathGroups: [{
-        pattern: '@/**',
-        group: 'parent'
-      }]
-    }],
+    ],
     'prettier/prettier': [
       'error',
       {
-        'singleQuote': true,
-      }
-    ]
+        singleQuote: true,
+      },
+    ],
+    'jsx-a11y/anchor-ambiguous-text': 'error',
+    'jsx-a11y/no-aria-hidden-on-focusable': 'error',
+    'security/detect-object-injection': 'off',
   },
   settings: {
     'import/resolver': {
       typescript: true,
-      node: true
-    }
-  }
+      node: true,
+    },
+  },
 };
