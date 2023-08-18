@@ -49,6 +49,12 @@ module.exports = {
         ],
       },
     ],
+    'react/jsx-no-useless-fragment': [
+      'error',
+      {
+        allowExpressions: true,
+      },
+    ],
   },
   settings: {
     'import/resolver': {
