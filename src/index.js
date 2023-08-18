@@ -40,6 +40,15 @@ module.exports = {
     'jsx-a11y/anchor-ambiguous-text': 'error',
     'jsx-a11y/no-aria-hidden-on-focusable': 'error',
     'security/detect-object-injection': 'off',
+    'react/forbid-elements': [
+      'error',
+      {
+        forbid: [
+          { element: 'b', message: 'Do not use HTML for styling' },
+          { element: 'i', message: 'Do not use HTML for styling' },
+        ],
+      },
+    ],
   },
   settings: {
     'import/resolver': {
