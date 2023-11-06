@@ -55,6 +55,7 @@ module.exports = {
         allowExpressions: true,
       },
     ],
+    'react/prefer-read-only-props': 'error',
   },
   settings: {
     'import/resolver': {
