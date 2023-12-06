@@ -23,7 +23,7 @@ Run the following:
 ```bash
 npm i -D husky lint-staged
 
-echo "module.exports = { '*.{ts,tsx,js,jsx}': 'eslint --fix' };" > lint-staged.config.js
+echo "module.exports = { '*.{ts,tsx,js,jsx,yml,yaml,json}': 'eslint --fix' };" > lint-staged.config.js
 
 npx husky install
 
@@ -35,7 +35,7 @@ npx husky set .husky/pre-commit "npx --no-install -- lint-staged"
 
 Add the following to your lint-staged config:
 
-`'*.{ts,tsx,js,jsx}': 'eslint --fix'`
+`'*.{ts,tsx,js,jsx,yml,yaml,json}': 'eslint --fix'`
 
 ## Usage with VSCode
 
