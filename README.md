@@ -46,7 +46,7 @@ Run the following:
 ```bash
 mkdir .vscode
 
-echo "{ \"editor.formatOnSave\": false, \"editor.codeActionsOnSave\": { \"source.fixAll.eslint\": true } }" > .vscode/settings.json
+echo "{ \"editor.formatOnSave\": false, \"editor.codeActionsOnSave\": { \"source.fixAll.eslint\": \"explicit\" } }" > .vscode/settings.json
 
 # The VSCode prettier extension doesn't read the eslint config, so specific
 # prettier overrides need to go in a prettier config for format on save
@@ -61,7 +61,7 @@ Add the following to `.vscode/settings.json`:
 ```json
 "editor.formatOnSave": false,
 "editor.codeActionsOnSave": {
-  "source.fixAll.eslint": true
+  "source.fixAll.eslint": "explicit"
 }
 ```
 
