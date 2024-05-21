@@ -9,6 +9,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:jsx-a11y/strict',
     'plugin:json/recommended',
+    'plugin:you-dont-need-lodash-underscore/compatible',
     'plugin:yml/standard',
     'plugin:yml/prettier',
   ],
