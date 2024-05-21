@@ -4,6 +4,7 @@
   "description": "Etch's standard eslint config",
   "main": "src/index.js",
   "scripts": {
+    "postinstall": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "semantic-release"
   },
@@ -44,6 +45,7 @@
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-unused-imports": "^3.0.0",
     "eslint-plugin-yml": "^1.10.0",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.14.0",
     "prettier": ">=3.0.0"
   },
   "peerDependencies": {
