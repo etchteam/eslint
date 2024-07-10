@@ -1,0 +1,21 @@
+name: 👮 CI
+on: pull_request
+env:
+  HUSKY: 0
+permissions:
+  contents: read
+jobs:
+  lint:
+    strategy:
+      matrix:
+        version: [18, 20, 21]
+    name: 🧹 Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
+          cache: npm
+      - run: npm ci --no-audit --no-fund --prefer-offline
+      - run: npx --no-install eslint .

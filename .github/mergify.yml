@@ -1,3 +1,4 @@
+---
 pull_request_rules:
   - name: Merge dependabot PRs when all checks pass
     conditions:
@@ -5,6 +6,7 @@ pull_request_rules:
         - author~=^dependabot(|-preview)\[bot\]$
         - check-success=SonarCloud Code Analysis
         - check-success~=^security/snyk
+        - check-success=🧹 Lint
         - label!=wontfix
     actions:
       review:
@@ -12,25 +14,12 @@ pull_request_rules:
         message: Automatically approving dependabot
       merge:
         method: merge
-  - name: Merge Snyk PRs when all checks pass
-    conditions:
-      - and:
-        - title~=^\[Snyk\]
-        - head~=^snyk-fix
-        - check-success~=^security/snyk
-        - check-success=SonarCloud Code Analysis
-        - label!=wontfix
-    actions:
-      review:
-        type: APPROVE
-        message: Automatically approving snyk
-      merge:
-        method: merge
   - name: Merge when all checks pass and the PR has been approved
     conditions:
       - and:
         - check-success~=^security/snyk
         - check-success=SonarCloud Code Analysis
+        - check-success=🧹 Lint
         - "#approved-reviews-by>=1"
         - "#changes-requested-reviews-by=0"
     actions:
