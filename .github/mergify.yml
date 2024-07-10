@@ -6,7 +6,10 @@ pull_request_rules:
         - author~=^dependabot(|-preview)\[bot\]$
         - check-success=SonarCloud Code Analysis
         - check-success~=^security/snyk
-        - check-success=🧹 Lint
+        - check-success=🧹 Lint (18)
+        - check-success=🧹 Lint (20)
+        - check-success=🧹 Lint (21)
+        - check-success=CodeQL
         - label!=wontfix
     actions:
       review:
@@ -19,7 +22,10 @@ pull_request_rules:
       - and:
         - check-success~=^security/snyk
         - check-success=SonarCloud Code Analysis
-        - check-success=🧹 Lint
+        - check-success=🧹 Lint (18)
+        - check-success=🧹 Lint (20)
+        - check-success=🧹 Lint (21)
+        - check-success=CodeQL
         - "#approved-reviews-by>=1"
         - "#changes-requested-reviews-by=0"
     actions:
