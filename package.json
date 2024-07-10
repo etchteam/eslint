@@ -9,7 +9,7 @@
     "release": "semantic-release"
   },
   "engines": {
-    "node": "^14 || ^16 || ^18 || ^20"
+    "node": "^18 || ^20 || ^21"
   },
   "repository": {
     "type": "git",
