@@ -1,15 +1,9 @@
 ---
 pull_request_rules:
-  - name: Merge dependabot PRs when all checks pass
+  - name: Automatically approve and merge dependabot PRs
     conditions:
       - and:
-        - author~=^dependabot(|-preview)\[bot\]$
-        - check-success=SonarCloud Code Analysis
-        - check-success~=^security/snyk
-        - check-success=🧹 Lint (18)
-        - check-success=🧹 Lint (20)
-        - check-success=🧹 Lint (21)
-        - check-success=CodeQL
+        - author=dependabot[bot]
         - label!=wontfix
     actions:
       review:
@@ -17,17 +11,27 @@ pull_request_rules:
         message: Automatically approving dependabot
       merge:
         method: merge
-  - name: Merge when all checks pass and the PR has been approved
+  - name: Automatically merge when the PR has been approved and there are no comments
     conditions:
       - and:
-        - check-success~=^security/snyk
-        - check-success=SonarCloud Code Analysis
-        - check-success=🧹 Lint (18)
-        - check-success=🧹 Lint (20)
-        - check-success=🧹 Lint (21)
-        - check-success=CodeQL
         - "#approved-reviews-by>=1"
         - "#changes-requested-reviews-by=0"
     actions:
       merge:
         method: merge
+  - name: Ask for reviews
+    conditions:
+      - -closed
+      - -draft
+    actions:
+      request_reviews:
+        teams:
+          - devs
+        random_count: 2
+  - name: Automatically assign to author
+    conditions:
+      - author!=dependabot[bot]
+    actions:
+      assign:
+        users:
+          - "{{author}}"
