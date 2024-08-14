@@ -4,7 +4,7 @@
   "description": "Etch's standard eslint config",
   "main": "src/index.js",
   "scripts": {
-    "postinstall": "husky install",
+    "prepare": "husky",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "semantic-release"
   },
