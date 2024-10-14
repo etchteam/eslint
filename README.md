@@ -11,7 +11,7 @@ npm i -D eslint prettier @etchteam/eslint-config
 ## Usage
 
 ```bash
-echo "module.exports = { extends: ['@etchteam'] };" > .eslintrc.js
+echo "module.exports = { extends: ['@etchteam'] };" > .eslintrc.cjs
 ```
 
 ### With lint-staged
@@ -23,11 +23,11 @@ Run the following:
 ```bash
 npm i -D husky lint-staged
 
-echo "module.exports = { '*.{ts,tsx,js,jsx,yml,yaml,json}': 'eslint --fix' };" > lint-staged.config.js
+echo "module.exports = { '*.{ts,tsx,js,jsx,yml,yaml,json}': 'eslint --fix' };" > lint-staged.config.cjs
 
-npx husky install
+npx husky init
 
-npx husky set .husky/pre-commit "npx --no-install -- lint-staged"
+echo "npx --no-install -- lint-staged" > .husky/pre-commit
 
 ```
 
@@ -50,7 +50,7 @@ echo "{ \"editor.formatOnSave\": false, \"editor.codeActionsOnSave\": { \"source
 
 # The VSCode prettier extension doesn't read the eslint config, so specific
 # prettier overrides need to go in a prettier config for format on save
-echo "module.exports = { singleQuote: true };" > prettier.config.js
+echo "module.exports = { singleQuote: true };" > prettier.config.cjs
 
 ```
 
@@ -70,5 +70,5 @@ Run the following:
 ```bash
 # The VSCode prettier extension doesn't read the eslint config, so specific
 # prettier overrides need to go in a prettier config for format on save
-echo "module.exports = { singleQuote: true };" > prettier.config.js
+echo "module.exports = { singleQuote: true };" > prettier.config.cjs
 ```
