@@ -61,6 +61,7 @@ module.exports = {
       },
     ],
     'react/prefer-read-only-props': 'error',
+    'spaced-comment': 'error',
   },
   settings: {
     'import/resolver': {
