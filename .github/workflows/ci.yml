@@ -18,7 +18,7 @@ jobs:
           node-version: ${{ matrix.version }}
           cache: npm
       - run: npm ci --no-audit --no-fund --prefer-offline
-      - run: npx --no-install eslint .
+      - run: npx --no-install eslint src
       - name: Test ESLint config against test files (expects failures)
         run: |
           set +e  # Don't exit on failure
