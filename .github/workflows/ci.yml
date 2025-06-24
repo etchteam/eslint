@@ -19,3 +19,16 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund --prefer-offline
       - run: npx --no-install eslint .
+      - name: Test ESLint config against test files (expects failures)
+        run: |
+          set +e  # Don't exit on failure
+          npx eslint test-files/ --format=compact
+          exit_code=$?
+          echo "ESLint exit code: $exit_code"
+          if [ $exit_code -eq 0 ]; then
+            echo "❌ Test files should have ESLint violations but none were found"
+            exit 1
+          else
+            echo "✅ Test files correctly show ESLint violations"
+            exit 0
+          fi

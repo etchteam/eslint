@@ -2,16 +2,22 @@
 
 The eslint config that we use at [Etch](https://etch.co)
 
+**⚠️ Version 1.0.0+ requires ESLint 9** - See [migration guide](#migrating-from-eslint-8) below for upgrading.
+
 ## Install
 
 ```bash
-npm i -D eslint prettier @etchteam/eslint-config
+npm i -D eslint@^9.0.0 prettier @etchteam/eslint-config
 ```
 
 ## Usage
 
-```bash
-echo "module.exports = { extends: ['@etchteam'] };" > .eslintrc.cjs
+Create an `eslint.config.js` file in your project root:
+
+```javascript
+import etchConfig from '@etchteam/eslint-config';
+
+export default etchConfig;
 ```
 
 ### With lint-staged
@@ -50,7 +56,7 @@ echo "{ \"editor.formatOnSave\": false, \"editor.codeActionsOnSave\": { \"source
 
 # The VSCode prettier extension doesn't read the eslint config, so specific
 # prettier overrides need to go in a prettier config for format on save
-echo "module.exports = { singleQuote: true };" > prettier.config.cjs
+echo "export default { singleQuote: true };" > prettier.config.js
 
 ```
 
@@ -70,5 +76,36 @@ Run the following:
 ```bash
 # The VSCode prettier extension doesn't read the eslint config, so specific
 # prettier overrides need to go in a prettier config for format on save
-echo "module.exports = { singleQuote: true };" > prettier.config.cjs
+echo "export default { singleQuote: true };" > prettier.config.js
 ```
+
+## Migrating from ESLint 8
+
+If you're upgrading from ESLint 8, follow these steps:
+
+### 1. Update Dependencies
+
+```bash
+npm install eslint@^9.0.0 @etchteam/eslint-config@^1.0.0
+```
+
+### 2. Replace Configuration
+
+Remove your old `.eslintrc.*` files and create a new `eslint.config.js`:
+
+```javascript
+import etchConfig from '@etchteam/eslint-config';
+
+export default etchConfig;
+```
+
+### 3. Update Scripts (if needed)
+
+ESLint 9 uses flat config by default, so your existing npm scripts should work without changes.
+
+### What's Changed
+
+- **Flat config format** - More explicit and performant
+- **ESLint 9 compatibility** - Latest features and fixes
+- **Updated plugins** - All plugins updated to latest versions
+- **Reduced compatibility layer** - Only 3 plugins need compatibility wrappers
