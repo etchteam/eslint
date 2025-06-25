@@ -2,7 +2,11 @@
   "name": "@etchteam/eslint-config",
   "version": "0.0.1",
   "description": "Etch's standard eslint config",
-  "main": "src/index.js",
+  "type": "module",
+  "main": "eslint.config.mjs",
+  "exports": {
+    ".": "./eslint.config.mjs"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "semantic-release"
@@ -30,25 +34,28 @@
     "lint-staged": "^16.0.0"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.10.0",
-    "@typescript-eslint/parser": "^7.10.0",
-    "eslint": ">=8.29.0",
-    "eslint-config-next": "^15.0.0",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-json": "^4.0.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-security": "^3.0.0",
-    "eslint-plugin-storybook": "^9.0.0",
+    "@eslint/compat": "^1.3.0",
+    "@eslint/js": "^9.29.0",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
+    "eslint": ">=9.0.0",
+    "eslint-config-next": "^15.3.4",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-json": "^4.0.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.5.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-security": "^3.0.1",
+    "eslint-plugin-storybook": "^9.0.13",
     "eslint-plugin-unused-imports": "^4.1.3",
-    "eslint-plugin-yml": "^1.10.0",
+    "eslint-plugin-yml": "^1.18.0",
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.14.0",
-    "prettier": ">=3.0.0"
+    "prettier": ">=3.0.0",
+    "typescript-eslint": "^8.35.0"
   },
   "peerDependencies": {
-    "eslint": ">=8.29.0",
+    "eslint": ">=9.0.0",
     "prettier": ">=3.0.0"
   }
 }
