@@ -1,0 +1,14 @@
+# Development and build files
+test-files/
+.github/
+.vscode/
+.husky/
+.claude/
+
+# Configuration files
+.editorconfig
+.nvmrc
+commitlint.config.js
+lint-staged.config.js
+prettier.config.js
+release.config.js
