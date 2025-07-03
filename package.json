@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "Etch's standard eslint config",
   "type": "module",
-  "main": "eslint.config.mjs",
+  "main": "index.mjs",
   "exports": {
-    ".": "./eslint.config.mjs"
+    ".": "./index.mjs"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
