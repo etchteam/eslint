@@ -24,7 +24,7 @@
     "release": "semantic-release"
   },
   "engines": {
-    "node": "^18 || ^20 || ^22"
+    "node": "^20 || ^22 || ^24"
   },
   "repository": {
     "type": "git",
