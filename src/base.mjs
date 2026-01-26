@@ -18,6 +18,7 @@ export default [
   ...tseslint.configs.recommended,
   security.configs.recommended,
   {
+    files: ['**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}'],
     plugins: {
       'unused-imports': unusedImports,
       import: fixupPluginRules(importPlugin),

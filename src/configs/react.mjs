@@ -8,6 +8,7 @@ import { fixupPluginRules } from '../utils/fixup.mjs';
  */
 export default [
   {
+    files: ['**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}'],
     plugins: {
       react: fixupPluginRules(react),
       'jsx-a11y': fixupPluginRules(jsxA11y),
