@@ -22,15 +22,14 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: cycjimmy/semantic-release-action@v3
+      - uses: cycjimmy/semantic-release-action@b12c8f6015dc215fe37bc154d4ad456dd3833c90
         with:
-          semantic_version: 19.x
+          semantic_version: 24.2.7
           branch: main
           extends: |
             @semantic-release/git@10.0.1
-            @semantic-release/changelog@6.0.2
-            @commitlint/cli@17.3.0
-            @commitlint/config-conventional@17.3.0
+            @semantic-release/changelog@6.0.3
+            @commitlint/cli@20.3.1
+            @commitlint/config-conventional@20.3.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
