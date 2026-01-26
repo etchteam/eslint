@@ -19,16 +19,28 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund --prefer-offline
       - run: npx --no-install eslint src
-      - name: Test ESLint config against test files (expects failures)
+      - name: Test configs expect ESLint violations
         run: |
-          set +e  # Don't exit on failure
-          npx eslint test-files/ --format=compact
-          exit_code=$?
-          echo "ESLint exit code: $exit_code"
-          if [ $exit_code -eq 0 ]; then
-            echo "❌ Test files should have ESLint violations but none were found"
-            exit 1
-          else
-            echo "✅ Test files correctly show ESLint violations"
-            exit 0
-          fi
+          # Helper function to test that ESLint finds violations
+          test_config() {
+            local name="$1"
+            local path="$2"
+            set +e
+            npx eslint $path
+            local exit_code=$?
+            set -e
+            if [ $exit_code -eq 0 ]; then
+              echo "❌ $name test files should have ESLint violations but none were found"
+              return 1
+            fi
+            echo "✅ $name test files correctly show ESLint violations"
+          }
+
+          # Test all configs
+          test_config "Base" "test-files/test.js test-files/test.json test-files/test.yml" && \
+          test_config "Angular" "test-files/angular/" && \
+          test_config "NestJS" "test-files/nestjs/" && \
+          test_config "Next.js" "test-files/nextjs/" && \
+          test_config "Node.js" "test-files/nodejs/" && \
+          test_config "Preact" "test-files/preact/" && \
+          test_config "Web Components" "test-files/web-components/"
