@@ -20,9 +20,103 @@ import etchConfig from '@etchteam/eslint-config';
 export default etchConfig;
 ```
 
-### With lint-staged
+## Environment-Specific Configs
 
-#### New project
+For projects that don't need the full config, use environment-specific imports to reduce dependencies:
+
+### Next.js
+
+```javascript
+import nextjs from '@etchteam/eslint-config/nextjs';
+
+export default nextjs;
+```
+
+### Node.js / Express
+
+```javascript
+import nodejs from '@etchteam/eslint-config/nodejs';
+
+export default nodejs;
+```
+
+### Angular
+
+```javascript
+import angular from '@etchteam/eslint-config/angular';
+
+export default angular;
+```
+
+### Preact
+
+```javascript
+import preact from '@etchteam/eslint-config/preact';
+
+export default preact;
+```
+
+### Web Components (Lit)
+
+```javascript
+import webComponents from '@etchteam/eslint-config/web-components';
+
+export default webComponents;
+```
+
+### NestJS
+
+```javascript
+import nestjs from '@etchteam/eslint-config/nestjs';
+
+export default nestjs;
+```
+
+## Composable Configs
+
+Build custom configs by combining individual modules:
+
+```javascript
+import { base, json, yaml, react } from '@etchteam/eslint-config';
+
+export default [
+  ...base,
+  ...json,
+  ...yaml,
+  ...react,
+  {
+    // Your custom overrides
+    rules: {
+      'react/prefer-read-only-props': 'warn',
+    },
+  },
+];
+```
+
+### Available Modules
+
+| Module | Description |
+|--------|-------------|
+| `base` | Core rules: JS, TypeScript, security, imports, prettier |
+| `json` | JSON file linting |
+| `yaml` | YAML file linting |
+| `storybook` | Storybook best practices |
+| `react` | React + JSX accessibility |
+
+### Environment Configs (Self-Contained)
+
+| Config | Includes |
+|--------|----------|
+| `nextjs` | base + json + yaml + storybook + react + Next.js rules |
+| `nodejs` | base + json + yaml + Node.js globals |
+| `angular` | base + json + yaml + storybook + Angular rules |
+| `preact` | base + json + yaml + storybook + react (Preact settings) |
+| `web-components` | base + json + yaml + storybook + Lit rules |
+| `nestjs` | base + json + yaml + NestJS rules + Jest globals |
+
+## With lint-staged
+
+### New project
 
 Run the following:
 
@@ -37,7 +131,7 @@ echo "npx --no-install -- lint-staged" > .husky/pre-commit
 
 ```
 
-#### Existing project with husky and lint staged
+### Existing project with husky and lint staged
 
 Add the following to your lint-staged config:
 
@@ -108,4 +202,4 @@ ESLint 9 uses flat config by default, so your existing npm scripts should work w
 - **Flat config format** - More explicit and performant
 - **ESLint 9 compatibility** - Latest features and fixes
 - **Updated plugins** - All plugins updated to latest versions
-- **Reduced compatibility layer** - Only 3 plugins need compatibility wrappers
+- **Modular configs** - Import only what you need for your environment

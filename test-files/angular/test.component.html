@@ -1,0 +1,16 @@
+<!-- Test file to validate Angular template ESLint configuration -->
+
+<!-- Missing alt attribute on image (accessibility violation) -->
+<img src="test.jpg">
+
+<!-- Empty alt attribute (accessibility violation) -->
+<img src="test.jpg" alt="">
+
+<!-- Click handler without keyboard support (accessibility violation) -->
+<div (click)="handleClick()">Click me</div>
+
+<!-- Missing label for form control (accessibility violation) -->
+<input type="text">
+
+<!-- Autofocus is problematic for accessibility -->
+<input type="text" autofocus>
