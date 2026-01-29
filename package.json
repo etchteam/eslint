@@ -64,7 +64,7 @@
   "optionalDependencies": {
     "@darraghor/eslint-plugin-nestjs-typed": "^6.0.0",
     "@next/eslint-plugin-next": "^15.0.0",
-    "angular-eslint": "^19.0.0",
+    "angular-eslint": "^21.1.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-lit": "^1.15.0",
     "eslint-plugin-react": "^7.37.5",
