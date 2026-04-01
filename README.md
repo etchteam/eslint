@@ -7,7 +7,7 @@ The eslint config that we use at [Etch](https://etch.co)
 ## Install
 
 ```bash
-npm i -D eslint@^9.0.0 prettier @etchteam/eslint-config
+npm i -D eslint@^9.0.0 prettier @etchteam/eslint-config eslint-plugin-react eslint-plugin-jsx-a11y
 ```
 
 ## Usage
@@ -26,6 +26,10 @@ For projects that don't need the full config, use environment-specific imports t
 
 ### Next.js
 
+```bash
+npm i -D eslint prettier @etchteam/eslint-config eslint-plugin-react eslint-plugin-jsx-a11y @next/eslint-plugin-next eslint-plugin-react-hooks
+```
+
 ```javascript
 import nextjs from '@etchteam/eslint-config/nextjs';
 
@@ -33,6 +37,10 @@ export default nextjs;
 ```
 
 ### Node.js / Express
+
+```bash
+npm i -D eslint prettier @etchteam/eslint-config
+```
 
 ```javascript
 import nodejs from '@etchteam/eslint-config/nodejs';
@@ -42,6 +50,10 @@ export default nodejs;
 
 ### Angular
 
+```bash
+npm i -D eslint prettier @etchteam/eslint-config angular-eslint
+```
+
 ```javascript
 import angular from '@etchteam/eslint-config/angular';
 
@@ -49,6 +61,10 @@ export default angular;
 ```
 
 ### Preact
+
+```bash
+npm i -D eslint prettier @etchteam/eslint-config eslint-plugin-react eslint-plugin-jsx-a11y
+```
 
 ```javascript
 import preact from '@etchteam/eslint-config/preact';
@@ -58,6 +74,10 @@ export default preact;
 
 ### Web Components (Lit)
 
+```bash
+npm i -D eslint prettier @etchteam/eslint-config eslint-plugin-lit
+```
+
 ```javascript
 import webComponents from '@etchteam/eslint-config/web-components';
 
@@ -65,6 +85,10 @@ export default webComponents;
 ```
 
 ### NestJS
+
+```bash
+npm i -D eslint prettier @etchteam/eslint-config @darraghor/eslint-plugin-nestjs-typed
+```
 
 ```javascript
 import nestjs from '@etchteam/eslint-config/nestjs';
@@ -113,6 +137,29 @@ export default [
 | `preact` | base + json + yaml + storybook + react (Preact settings) |
 | `web-components` | base + json + yaml + storybook + Lit rules |
 | `nestjs` | base + json + yaml + NestJS rules + Jest globals |
+
+### Required Plugins
+
+The **base**, **json**, **yaml**, and **storybook** modules have all their plugins included as package dependencies — no extra installs needed.
+
+Environment-specific configs require additional plugins to be installed as peer dependencies:
+
+| Config | Additional plugins to install |
+|--------|-------------------------------|
+| Default (`@etchteam/eslint-config`) | `eslint-plugin-react` `eslint-plugin-jsx-a11y` |
+| `react` | `eslint-plugin-react` `eslint-plugin-jsx-a11y` |
+| `nextjs` | `eslint-plugin-react` `eslint-plugin-jsx-a11y` `@next/eslint-plugin-next` `eslint-plugin-react-hooks` |
+| `nodejs` | None |
+| `preact` | `eslint-plugin-react` `eslint-plugin-jsx-a11y` |
+| `angular` | `angular-eslint` |
+| `web-components` | `eslint-plugin-lit` |
+| `nestjs` | `@darraghor/eslint-plugin-nestjs-typed` |
+
+For example, to use the Next.js config:
+
+```bash
+npm i -D eslint prettier @etchteam/eslint-config eslint-plugin-react eslint-plugin-jsx-a11y @next/eslint-plugin-next eslint-plugin-react-hooks
+```
 
 ## With lint-staged
 
