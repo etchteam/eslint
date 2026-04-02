@@ -1,0 +1,25 @@
+<script>
+  var unused_variable = "test"
+  var x = new Array()
+  console.log("double quotes")
+</script>
+
+<script webc:setup>
+  var setup_unused = "test"
+  const obj = {}
+  obj[x] = 'detected'
+</script>
+
+<template webc:type="js">
+  var template_unused = "test"
+  console.log("double quotes")
+</template>
+
+<template webc:type="render">
+  var render_unused = "test"
+  console.log("double quotes")
+</template>
+
+<div class="content">
+  <slot></slot>
+</div>

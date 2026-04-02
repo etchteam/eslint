@@ -16,6 +16,7 @@
     "./preact": "./src/configs/environments/preact.mjs",
     "./angular": "./src/configs/environments/angular.mjs",
     "./web-components": "./src/configs/environments/web-components.mjs",
+    "./webc": "./src/configs/environments/webc.mjs",
     "./nestjs": "./src/configs/environments/nestjs.mjs",
     "./package.json": "./package.json"
   },

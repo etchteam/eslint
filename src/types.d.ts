@@ -53,6 +53,12 @@ export declare const preact: FlatConfigArray;
 export declare const angular: FlatConfigArray;
 
 /**
+ * WebC template linting configuration.
+ * Provides a processor for extracting and linting inline JavaScript in .webc files.
+ */
+export declare const webc: FlatConfigArray;
+
+/**
  * Web Components (Lit) ESLint configuration.
  * Includes: base + JSON + YAML + Storybook + Lit rules
  */
