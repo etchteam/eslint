@@ -9,6 +9,7 @@ export { default as base } from './base.mjs';
 export { default as json } from './configs/json.mjs';
 export { default as react } from './configs/react.mjs';
 export { default as storybook } from './configs/storybook.mjs';
+export { default as webc } from './configs/webc.mjs';
 export { default as yaml } from './configs/yaml.mjs';
 
 /**

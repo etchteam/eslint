@@ -57,4 +57,5 @@ jobs:
           test_config "Next.js" "test-files/nextjs/" && \
           test_config "Node.js" "test-files/nodejs/" && \
           test_config "Preact" "test-files/preact/" && \
-          test_config "Web Components" "test-files/web-components/"
+          test_config "Web Components" "test-files/web-components/" && \
+          test_config "WebC" "-c test-files/webc/eslint.config.mjs test-files/webc/"
