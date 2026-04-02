@@ -1,14 +1,42 @@
-// eslint-disable-next-line security/detect-unsafe-regex
-const SCRIPT_OPEN = /^(\s*)<script(\s[^>]*)?\s*>/i;
-const SCRIPT_CLOSE = /<\/script\s*>/i;
-const TEMPLATE_OPEN =
-  // eslint-disable-next-line security/detect-unsafe-regex
-  /^(\s*)<template\s+webc:type=["'](js|render)["'](\s[^>]*)?\s*>/i;
-const TEMPLATE_CLOSE = /<\/template\s*>/i;
-const WEBC_SETUP = /webc:setup/;
+/**
+ * Block definitions for each type of inline JavaScript in WebC files.
+ * Each entry maps an opening tag pattern to its closing pattern and type resolver.
+ */
+const BLOCK_DEFS = [
+  {
+    // eslint-disable-next-line security/detect-unsafe-regex
+    open: /^(\s*)<script(\s[^>]*)?\s*>/i,
+    close: /<\/script\s*>/i,
+    getType: (line) => (/webc:setup/.test(line) ? 'script-setup' : 'script'),
+  },
+  {
+    // eslint-disable-next-line security/detect-unsafe-regex
+    open: /^(\s*)<template\s+webc:type=["'](js|render)["'](\s[^>]*)?\s*>/i,
+    close: /<\/template\s*>/i,
+    getType: (_line, match) => `template-${match[2]}`,
+  },
+];
 
 /** @type {Map<string, Array<{ startLine: number, charOffset: number, type: string }>>} */
 const blockMetadata = new Map();
+
+/**
+ * Try to match a line against all block definitions.
+ *
+ * @param {string} line
+ * @returns {{ match: RegExpMatchArray, close: RegExp, type: string } | null}
+ */
+function matchOpenTag(line) {
+  for (const def of BLOCK_DEFS) {
+    const match = line.match(def.open);
+
+    if (match) {
+      return { match, close: def.close, type: def.getType(line, match) };
+    }
+  }
+
+  return null;
+}
 
 /**
  * Extract JavaScript blocks from a WebC file.
@@ -26,85 +54,40 @@ function extractBlocks(text) {
   let blockLines = [];
   let blockStartLine = 0;
   let blockCharOffset = 0;
-
-  // Track character offset as we walk through lines
   let currentCharOffset = 0;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
     if (!insideBlock) {
-      let match = line.match(SCRIPT_OPEN);
+      const opened = matchOpenTag(line);
 
-      if (match) {
-        insideBlock = true;
-        closePattern = SCRIPT_CLOSE;
-        blockType = WEBC_SETUP.test(line) ? 'script-setup' : 'script';
-        blockLines = [];
+      if (opened) {
+        const tagEnd = line.indexOf('>', opened.match.index) + 1;
+        const closeMatch = line.match(opened.close);
 
-        // Content after the opening tag on the same line
-        const tagEnd = line.indexOf('>', match.index) + 1;
-        const closeMatch = line.match(SCRIPT_CLOSE);
-
-        if (closeMatch && closeMatch.index > match.index) {
+        if (closeMatch && closeMatch.index > opened.match.index) {
           // Single-line block: <script>code</script>
-          const content = line.slice(tagEnd, closeMatch.index);
-
           blocks.push({
-            code: content,
+            code: line.slice(tagEnd, closeMatch.index),
             startLine: i + 1,
             charOffset: currentCharOffset + tagEnd,
-            type: blockType,
+            type: opened.type,
           });
-          insideBlock = false;
-          closePattern = null;
         } else {
+          insideBlock = true;
+          closePattern = opened.close;
+          blockType = opened.type;
+          blockLines = [];
           blockStartLine = i + 2; // Content starts on next line (1-indexed)
-          blockCharOffset = currentCharOffset + line.length + 1; // +1 for newline
+          blockCharOffset = currentCharOffset + line.length + 1;
 
           const afterTag = line.slice(tagEnd);
 
           if (afterTag.trim()) {
-            // Content on same line as opening tag
             blockStartLine = i + 1;
             blockCharOffset = currentCharOffset + tagEnd;
             blockLines.push(afterTag);
-          }
-        }
-      } else {
-        match = line.match(TEMPLATE_OPEN);
-
-        if (match) {
-          insideBlock = true;
-          closePattern = TEMPLATE_CLOSE;
-          blockType = `template-${match[2]}`;
-          blockLines = [];
-
-          const tagEnd = line.indexOf('>', match.index) + 1;
-          const closeMatch = line.match(TEMPLATE_CLOSE);
-
-          if (closeMatch && closeMatch.index > match.index) {
-            const content = line.slice(tagEnd, closeMatch.index);
-
-            blocks.push({
-              code: content,
-              startLine: i + 1,
-              charOffset: currentCharOffset + tagEnd,
-              type: blockType,
-            });
-            insideBlock = false;
-            closePattern = null;
-          } else {
-            blockStartLine = i + 2;
-            blockCharOffset = currentCharOffset + line.length + 1;
-
-            const afterTag = line.slice(tagEnd);
-
-            if (afterTag.trim()) {
-              blockStartLine = i + 1;
-              blockCharOffset = currentCharOffset + tagEnd;
-              blockLines.push(afterTag);
-            }
           }
         }
       }
@@ -112,7 +95,6 @@ function extractBlocks(text) {
       const closeMatch = line.match(closePattern);
 
       if (closeMatch) {
-        // Content before closing tag on this line
         const beforeClose = line.slice(0, closeMatch.index);
 
         if (beforeClose.trim()) {
@@ -138,7 +120,7 @@ function extractBlocks(text) {
       }
     }
 
-    currentCharOffset += line.length + 1; // +1 for newline
+    currentCharOffset += line.length + 1;
   }
 
   return blocks;
