@@ -58,6 +58,7 @@ export default [
       ],
       'security/detect-object-injection': 'off',
       'spaced-comment': 'error',
+      curly: 'error',
     },
     settings: {
       'import/resolver': {
