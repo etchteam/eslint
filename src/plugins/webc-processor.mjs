@@ -4,13 +4,11 @@
  */
 const BLOCK_DEFS = [
   {
-    // eslint-disable-next-line security/detect-unsafe-regex
     open: /^(\s*)<script(\s[^>]*)?\s*>/i,
     close: /<\/script\s*>/i,
     getType: (line) => (/webc:setup/.test(line) ? 'script-setup' : 'script'),
   },
   {
-    // eslint-disable-next-line security/detect-unsafe-regex
     open: /^(\s*)<template\s+webc:type=["'](js|render)["'](\s[^>]*)?\s*>/i,
     close: /<\/template\s*>/i,
     getType: (_line, match) => `template-${match[2]}`,
