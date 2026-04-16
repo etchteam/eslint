@@ -1,3 +1,5 @@
+import globals from 'globals';
+
 import webcPlugin from '../plugins/webc-processor.mjs';
 
 /**
@@ -14,5 +16,11 @@ export default [
   {
     files: ['**/*.webc'],
     processor: webcPlugin.processors.webc,
+  },
+  {
+    files: ['**/*.webc/*.js'],
+    languageOptions: {
+      globals: globals.browser,
+    },
   },
 ];
