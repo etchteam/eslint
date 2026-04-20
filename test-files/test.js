@@ -7,6 +7,18 @@ import { useState } from 'react';
 // Test unused variables
 const unusedVar = 'test';
 
+// Test dot-notation (should be caught)
+const obj = { foo: 1 };
+const viaBracket = obj['foo'];
+
+// Test no-restricted-globals for parseInt/parseFloat (should be caught)
+const int = parseInt('42', 10);
+const float = parseFloat('3.14');
+
+// Test no-implicit-coercion (should be caught)
+const asBool = !!viaBracket;
+const asNum = +int;
+
 // Test React component with accessibility and other rules
 const TestComponent = () => {
   const [count, setCount] = useState(0);

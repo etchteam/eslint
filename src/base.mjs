@@ -85,6 +85,19 @@ export default [
       'security/detect-object-injection': 'off',
       'spaced-comment': 'error',
       curly: 'error',
+      'dot-notation': 'warn',
+      'no-implicit-coercion': 'error',
+      'no-restricted-globals': [
+        'error',
+        {
+          name: 'parseInt',
+          message: 'Use Number.parseInt instead.',
+        },
+        {
+          name: 'parseFloat',
+          message: 'Use Number.parseFloat instead.',
+        },
+      ],
     },
     settings: {
       'import/resolver': {
