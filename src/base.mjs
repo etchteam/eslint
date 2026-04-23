@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import importPlugin from 'eslint-plugin-import';
+import importX from 'eslint-plugin-import-x';
 import prettier from 'eslint-plugin-prettier/recommended';
 import security from 'eslint-plugin-security';
 import sonarjs from 'eslint-plugin-sonarjs';
@@ -47,7 +47,7 @@ export default [
     files: JS_FILES,
     plugins: {
       'unused-imports': unusedImports,
-      import: fixupPluginRules(importPlugin),
+      'import-x': importX,
       'you-dont-need-lodash-underscore': fixupPluginRules(youDontNeedLodash),
     },
     languageOptions: {
@@ -61,7 +61,7 @@ export default [
       '@typescript-eslint/no-explicit-any': 'warn',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': 'off',
-      'import/order': [
+      'import-x/order': [
         'error',
         {
           'newlines-between': 'always',
@@ -100,7 +100,7 @@ export default [
       ],
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         typescript: true,
         node: true,
       },

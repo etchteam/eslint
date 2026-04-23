@@ -24,6 +24,7 @@ export default [
   ...storybook,
   ...react,
   {
+    files: ['**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}'],
     plugins: {
       '@next/next': nextPlugin,
       'react-hooks': reactHooks,
@@ -32,7 +33,7 @@ export default [
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
       ...reactHooks.configs.recommended.rules,
-      'import/no-anonymous-default-export': 'warn',
+      'import-x/no-anonymous-default-export': 'warn',
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
     },

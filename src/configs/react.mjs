@@ -1,8 +1,6 @@
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 
-import { fixupPluginRules } from '../utils/fixup.mjs';
-
 /**
  * React and JSX accessibility linting configuration.
  */
@@ -10,8 +8,8 @@ export default [
   {
     files: ['**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}'],
     plugins: {
-      react: fixupPluginRules(react),
-      'jsx-a11y': fixupPluginRules(jsxA11y),
+      react,
+      'jsx-a11y': jsxA11y,
     },
     rules: {
       'jsx-a11y/anchor-ambiguous-text': 'error',
