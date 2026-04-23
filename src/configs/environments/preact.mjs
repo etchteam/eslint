@@ -21,6 +21,7 @@ export default [
   ...storybook,
   ...react,
   {
+    files: ['**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}'],
     settings: {
       react: {
         pragma: 'h',
