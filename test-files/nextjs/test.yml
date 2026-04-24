@@ -1,0 +1,7 @@
+name: test-config
+version: 1.0.0
+# Fixed indentation
+description: Test YAML file
+scripts:
+  test: echo test
+  build: echo build

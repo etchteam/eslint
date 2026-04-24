@@ -132,7 +132,7 @@ Note: `HUSKY=0` environment variable disables hooks in CI.
 
 ### CI Pipeline (`.github/workflows/ci.yml`)
 - Runs on pull requests
-- Tests against Node.js 18, 20, 22
+- Tests against Node.js 20, 22, 24 (matches `engines` field)
 - Lints source code with `npx eslint src`
 - Validates config against `test-files/` (expects violations to prove rules work)
 
