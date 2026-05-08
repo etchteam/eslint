@@ -42,7 +42,7 @@
   "homepage": "https://github.com/etchteam/eslint#readme",
   "devDependencies": {
     "@commitlint/cli": "^21.0.0",
-    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/config-conventional": "^21.0.0",
     "@darraghor/eslint-plugin-nestjs-typed": "^7.1.27",
     "@next/eslint-plugin-next": "^16.2.1",
     "angular-eslint": "^21.3.1",
