@@ -1,10 +1,9 @@
----
 pull_request_rules:
   - name: Automatically approve and merge dependabot PRs
     conditions:
       - and:
-        - author=dependabot[bot]
-        - label!=wontfix
+          - author=dependabot[bot]
+          - label!=wontfix
     actions:
       review:
         type: APPROVE
@@ -14,8 +13,8 @@ pull_request_rules:
   - name: Automatically merge when the PR has been approved and there are no comments
     conditions:
       - and:
-        - "#approved-reviews-by>=1"
-        - "#changes-requested-reviews-by=0"
+          - "#approved-reviews-by>=1"
+          - "#changes-requested-reviews-by=0"
     actions:
       merge:
         method: merge
@@ -34,4 +33,4 @@ pull_request_rules:
     actions:
       assign:
         users:
-          - "{{author}}"
+          - "{{ author }}"
