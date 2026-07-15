@@ -227,7 +227,8 @@ function adjustMessage(message, lineOffset, charOffset) {
   return {
     ...message,
     line: message.line + lineOffset,
-    endLine: message.endLine != null ? message.endLine + lineOffset : undefined,
+    endLine:
+      message.endLine === undefined ? undefined : message.endLine + lineOffset,
     fix: message.fix
       ? {
           range: [
