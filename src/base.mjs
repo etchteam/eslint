@@ -84,6 +84,7 @@ export default [
       ],
       'security/detect-object-injection': 'off',
       'spaced-comment': 'error',
+      eqeqeq: 'error',
       curly: 'error',
       'dot-notation': 'warn',
       'no-implicit-coercion': 'error',
